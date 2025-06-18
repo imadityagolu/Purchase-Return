@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { GrDocumentPdf } from "react-icons/gr";
 import { TbFileTypeXml } from "react-icons/tb";
 import { HiOutlineRefresh } from "react-icons/hi";
-import { FaArrowUp } from "react-icons/fa6";
+import { IoIosArrowUp } from "react-icons/io";
 import { IoIosSearch, IoIosArrowDown, IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { FaRegEdit } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
@@ -167,9 +167,9 @@ const SupplierRow = ({ supplier }) => {
         <td>${supplier.amountPaid.toFixed(2)}</td>
         <td>${supplier.dueAmount.toFixed(2)}</td>
         <td><span className={`${getPaymentStatusColor(supplier.paymentStatus)}`}> • {supplier.paymentStatus}</span></td>
-        <td style={{padding:'10px', textAlign:'center'}}>
-          <FaRegEdit className="inline mr-2 cursor-pointer" />
-          <MdDeleteForever className="inline cursor-pointer" />
+        <td style={{padding:'10px', textAlign:'center', display:'flex', gap:'10px'}}>
+          <FaRegEdit className="update-icon" />
+          <MdDeleteForever className="delete-icon" />
         </td>
         </tr>
     
@@ -198,8 +198,8 @@ function AllProducts() {
             <div className='heading-icons-p'><GrDocumentPdf /></div>
             <div className='heading-icons-x'><TbFileTypeXml /></div>
             <div className='heading-icons-r'><HiOutlineRefresh /></div>
-            <div className='heading-icons-a'><FaArrowUp /></div>
-            <div className='link-btn'><Link to="/AddPurchaseReturn" className='link-icon'><CiCirclePlus className='icon' /> Add Sales Return</Link></div>
+            <div className='heading-icons-a'><IoIosArrowUp /></div>
+            <Link to="/AddPurchaseReturn" className='link-icon'><CiCirclePlus className='icon' /> Add Sales Return</Link>
           </div>
         </div>
 
@@ -265,12 +265,13 @@ function AllProducts() {
             <span>Entries</span>
           </div>
           <div className='row-num'>
-            <IoIosArrowBack className=""/>
+            <IoIosArrowBack className="arrow-back"/>
             <span className='counting'>1</span>
-            <IoIosArrowForward className=""/>
+            <IoIosArrowForward className="arrow-forward"/>
           </div>
         </div>
 
+        {/* setting icon */}
         <div className='setting'>
             <IoMdSettings />
         </div>
